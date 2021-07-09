@@ -10,7 +10,7 @@ if (!name || name.match(/[<>:"\/\\|?*\x00-\x1F]/)) {
 `);
 }
 
-const repoURL = 'https://github.com/schw4be/create-express-ts-btp-api.git';
+const repoURL = 'https://github.com/schw4be/express-ts-btp-api.git';
 
 runCommand('git', ['clone', repoURL, name])
   .then(() => {
