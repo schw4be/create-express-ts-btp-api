@@ -1,0 +1,8 @@
+mta_*/
+mta-*/
+node_modules/
+*.zip
+*.log
+Makefile_*
+dist/
+test-dest/
