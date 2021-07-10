@@ -69,7 +69,6 @@ const updateXsSecurityJson = async (config) => {
 
 
 (async () => {
-    console.log("Start");
 
     const questions = [
 		/*{
@@ -120,5 +119,7 @@ const updateXsSecurityJson = async (config) => {
     await updatePackageJson(config);
 
     await updateXsSecurityJson(config);
+
+    console.log('... and done! 😉 Project ' + answers.projectName + ' has been created successfully!');
 
 })();
