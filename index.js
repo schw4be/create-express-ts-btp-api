@@ -45,7 +45,11 @@ const copyProjectFiles = (config) => {
 	});
 };
 
-
+/**
+ * obsolet! -> delete
+ * @param {} config 
+ * @returns 
+ */
 const updatePackageJson = async (config) => {
 	try {
 		const pathName = `${config.destination}/package.json`;
@@ -58,18 +62,22 @@ const updatePackageJson = async (config) => {
         //data.name = path.basename(config.projectName);
 		//data = JSON.stringify(data, null, 2);
 		await writeFile(pathName, data);
+		return data.name;
 	} catch (err) {
 		throw err;
 	}
 }
 
+/**
+ * obsolet! -> delete
+ */
 const updateXsSecurityJson = async (config) => {
 	try {
 		const pathName = `${config.destination}/xs-security.json`;
 		let data = require(pathName);
         // Two options
         // 1) Replace all string occurences of the "template project name"
-        const search = new RegExp(data.xsappname, 'gm');
+        const search = new RegExp(config.template, 'gm');
         data = JSON.stringify(data, null, 2).replace(search, config.projectName);
         // 2) We replace each object value on our own. This means, we have to know the template structure.. Not so flexible..
         //data.name = path.basename(config.projectName);
@@ -80,14 +88,13 @@ const updateXsSecurityJson = async (config) => {
 	}
 }
 
-
-const updateRouterPackageJson = async (config) => {
+const updateJson = async (config) => {
 	try {
-		const pathName = `${config.destination}/package.json`;
+		const pathName = `${config.destination}/${config.file}.json`;
 		let data = require(pathName);
         // Two options
         // 1) Replace all string occurences of the "template project name"
-        const search = new RegExp(data.name, 'gm');
+        const search = new RegExp(config.template, 'gm');
         data = JSON.stringify(data, null, 2).replace(search, config.projectName);
         // 2) We replace each object value on our own. This means, we have to know the template structure.. Not so flexible..
         //data.name = path.basename(config.projectName);
@@ -97,6 +104,8 @@ const updateRouterPackageJson = async (config) => {
 		throw err;
 	}
 }
+
+
 
 (async () => {
 
@@ -141,20 +150,29 @@ const updateRouterPackageJson = async (config) => {
     const config = {
         template: 'express-ts-btp-api',
         projectName: answers.projectName,
-        destination: './test'
+        destination: './test',
+		file: ''
     };
 
 	// Entire Structure
     await copyProjectFiles(config);
 
 	// Main Folder
-    await updatePackageJson(config);
-    await updateXsSecurityJson(config);
+    //await updatePackageJson(config);
+	//await updateXsSecurityJson(config);
+	config.file = 'package'
+	await updateJson(config);	
+	config.file = 'xs-security'
+	await updateJson(config);
+    
 	//await updateMtaYaml(config);
 
 	// Router Folder
 	config.destination = config.destination + '/router';
-	await updatePackageJson(config);
+	config.file = 'package'
+	await updateJson(config);
+	config.file = 'xs-app'
+	await updateJson(config);
 
 	// Srv Folder
 	//config.destination = config.destination + '/srv';
