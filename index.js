@@ -64,7 +64,20 @@ const updatePackageJson = async (config) => {
 }
 
 const updateXsSecurityJson = async (config) => {
-
+	try {
+		const pathName = `${config.destination}/xs-security.json`;
+		let data = require(pathName);
+        // Two options
+        // 1) Replace all string occurences of the "template project name"
+        const search = new RegExp(data.xsappname, 'gm');
+        data = JSON.stringify(data, null, 2).replace(search, config.projectName);
+        // 2) We replace each object value on our own. This means, we have to know the template structure.. Not so flexible..
+        //data.name = path.basename(config.projectName);
+		//data = JSON.stringify(data, null, 2);
+		await writeFile(pathName, data);
+	} catch (err) {
+		throw err;
+	}
 }
 
 

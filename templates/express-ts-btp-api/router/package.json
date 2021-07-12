@@ -1,0 +1,11 @@
+{
+  "name": "express-ts-btp-api-router",
+  "description": "Node.js based application router for the SAP Business Technology Platform",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node node_modules/@sap/approuter/approuter.js"
+  },
+  "dependencies": {
+    "@sap/approuter": "^10.4.3"
+  }
+}

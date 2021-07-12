@@ -1,0 +1,73 @@
+{
+    "destinations": [
+      {
+        "name": "express-ts-btp-api-service",
+        "url": "http://localhost:3000",
+        "forwardAuthToken": true
+      }
+    ],
+    "NODE_ENV": "development",
+    "VCAP_SERVICES": {
+        "xsuaa": [
+          {
+			"label": "xsuaa",
+			"provider": null,
+			"plan": "application",
+			"name": "express-ts-btp-api-uaa",
+			"tags": [ "xsuaa" ],
+			"instance_guid": "2578094a-77aa-4f4b-8e3c-5a7199c65f0a",
+			"instance_name": "express-ts-btp-api-uaa",
+			"binding_guid": "a79e982c-bbd9-45bd-9929-ea14a2582469",
+			"binding_name": null,
+			"credentials": {
+				"tenantmode": "shared",
+				"sburl": "https://internal-xsuaa.authentication.eu10.hana.ondemand.com",
+				"subaccountid": "7fac2aa7-30c3-41a9-8a37-f67f9f62737b",
+				"credential-type": "instance-secret",
+				"clientid": "sb-express-ts-btp-api!t75929",
+				"xsappname": "express-ts-btp-api!t75929",
+				"clientsecret": "sYrFHUO82JAxIlP0CCE+qCj1zRs=",
+				"url": "https://e1ca60cctrial.authentication.eu10.hana.ondemand.com",
+				"uaadomain": "authentication.eu10.hana.ondemand.com",
+				"verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5/AHodnTbTIqA2jjHkaWVVDJCqb0Ce4j73I7npMg2PgCYKuqBzg4302eDz/cEhuPDGuLC9k4zf0wVmvvMrSvHCxQsZ3YgHCaFSd86biFMxp8nmoRRi/ni++qMHevYbxRCbNEw+5PQJwq73pWSKdhGxqUzc446PRXsZDzJJltVf4gQ1uD8wCqeyMVf/cCO8kWm/0JqgvoFiOyMGtMIl+vmcd8A5QcrByzvbUj8vl/+sZHOpBhJ7lfApjSoZ9WSMavgMap0wSk7AKfjX/vJNzZXv8sY/CQN1eyCLTrNc9KAQpMPwg5hTWuH3RvGORvFTuxaxhjc7cLVSSND0w44BLpSwIDAQAB-----END PUBLIC KEY-----",
+				"apiurl": "https://api.authentication.eu10.hana.ondemand.com",
+				"identityzone": "e1ca60cctrial",
+				"identityzoneid": "7fac2aa7-30c3-41a9-8a37-f67f9f62737b",
+				"tenantid": "7fac2aa7-30c3-41a9-8a37-f67f9f62737b",
+				"zoneid": "7fac2aa7-30c3-41a9-8a37-f67f9f62737b"
+			},
+			"syslog_drain_url": null,
+			"volume_mounts": []
+          }
+        ],
+        "destination": [
+          {
+            "label": "destination",
+            "provider": null,
+            "plan": "lite",
+            "name": "express-ts-btp-api-dest",
+            "tags": ["destination", "conn", "connsvc"],
+            "instance_guid": "fc512840-123a-45e5-b48a-ede795fa89f9",
+            "instance_name": "express-ts-btp-api-dest",
+            "binding_guid": "5c3fcd7f-c528-4b51-b851-fecd04745edc",
+            "binding_name": null,
+            "credentials": {
+                "uaadomain": "authentication.eu10.hana.ondemand.com",
+                "tenantmode": "dedicated",
+                "clientid": "sb-clonefc512840123a45e5b48aede795fa89f9!b75929|destination-xsappname!b404",
+                "instanceid": "fc512840-123a-45e5-b48a-ede795fa89f9",
+                "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5/AHodnTbTIqA2jjHkaWVVDJCqb0Ce4j73I7npMg2PgCYKuqBzg4302eDz/cEhuPDGuLC9k4zf0wVmvvMrSvHCxQsZ3YgHCaFSd86biFMxp8nmoRRi/ni++qMHevYbxRCbNEw+5PQJwq73pWSKdhGxqUzc446PRXsZDzJJltVf4gQ1uD8wCqeyMVf/cCO8kWm/0JqgvoFiOyMGtMIl+vmcd8A5QcrByzvbUj8vl/+sZHOpBhJ7lfApjSoZ9WSMavgMap0wSk7AKfjX/vJNzZXv8sY/CQN1eyCLTrNc9KAQpMPwg5hTWuH3RvGORvFTuxaxhjc7cLVSSND0w44BLpSwIDAQAB-----END PUBLIC KEY-----",
+                "xsappname": "clonefc512840123a45e5b48aede795fa89f9!b75929|destination-xsappname!b404",
+                "identityzone": "e1ca60cctrial",
+                "clientsecret": "5c3fcd7f-c528-4b51-b851-fecd04745edc$ugUBw-hvEgNC9TGouCFZ-hkGY3F_yNVJct0uEFQNjZ0=",
+                "tenantid": "7fac2aa7-30c3-41a9-8a37-f67f9f62737b",
+                "uri": "https://destination-configuration.cfapps.eu10.hana.ondemand.com",
+                "url": "https://e1ca60cctrial.authentication.eu10.hana.ondemand.com"
+            },
+            "syslog_drain_url": null,
+            "volume_mounts": []
+          }
+        ]
+    }    
+}
+  

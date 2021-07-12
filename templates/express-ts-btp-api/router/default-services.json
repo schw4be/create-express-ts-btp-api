@@ -1,0 +1,16 @@
+{
+    "uaa": {
+      "apiurl": "https://api.authentication.eu10.hana.ondemand.com",
+      "clientid": "sb-express-ts-btp-api!t75929",
+      "clientsecret": "sYrFHUO82JAxIlP0CCE+qCj1zRs=",
+      "identityzone": "e1ca60cctrial",
+      "identityzoneid": "7fac2aa7-30c3-41a9-8a37-f67f9f62737b",
+      "sburl": "https://internal-xsuaa.authentication.eu10.hana.ondemand.com",
+      "tenantid": "7fac2aa7-30c3-41a9-8a37-f67f9f62737b",
+      "tenantmode": "dedicated",
+      "uaadomain": "authentication.eu10.hana.ondemand.com",
+      "url": "https://e1ca60cctrial.authentication.eu10.hana.ondemand.com",
+      "verificationkey": "----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5/AHodnTbTIqA2jjHkaWVVDJCqb0Ce4j73I7npMg2PgCYKuqBzg4302eDz/cEhuPDGuLC9k4zf0wVmvvMrSvHCxQsZ3YgHCaFSd86biFMxp8nmoRRi/ni++qMHevYbxRCbNEw+5PQJwq73pWSKdhGxqUzc446PRXsZDzJJltVf4gQ1uD8wCqeyMVf/cCO8kWm/0JqgvoFiOyMGtMIl+vmcd8A5QcrByzvbUj8vl/+sZHOpBhJ7lfApjSoZ9WSMavgMap0wSk7AKfjX/vJNzZXv8sY/CQN1eyCLTrNc9KAQpMPwg5hTWuH3RvGORvFTuxaxhjc7cLVSSND0w44BLpSwIDAQAB-----END PUBLIC KEY-----",
+      "xsappname": "express-ts-btp-api!t75929"
+    }
+  }

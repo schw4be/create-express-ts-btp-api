@@ -1,0 +1,22 @@
+{
+    "welcomeFile": "index.html",
+    "authenticationMethod": "route",
+    "logout": {
+      "logoutEndpoint": "/do/logout"
+    },
+    "routes": [
+      {
+        "source": "^/api/v1/(.*)$",
+        "target": "$1",
+        "authenticationType": "xsuaa",
+        "scope": "uaa.user",
+        "destination": "express-ts-btp-api-service"
+      },
+      {
+        "source": "^/(.*)",
+        "authenticationType": "xsuaa",
+        "scope": "uaa.user",
+        "localDir": "public"
+      }
+    ]
+  }
