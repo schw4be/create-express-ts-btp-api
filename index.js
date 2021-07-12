@@ -81,6 +81,23 @@ const updateXsSecurityJson = async (config) => {
 }
 
 
+const updateRouterPackageJson = async (config) => {
+	try {
+		const pathName = `${config.destination}/package.json`;
+		let data = require(pathName);
+        // Two options
+        // 1) Replace all string occurences of the "template project name"
+        const search = new RegExp(data.name, 'gm');
+        data = JSON.stringify(data, null, 2).replace(search, config.projectName);
+        // 2) We replace each object value on our own. This means, we have to know the template structure.. Not so flexible..
+        //data.name = path.basename(config.projectName);
+		//data = JSON.stringify(data, null, 2);
+		await writeFile(pathName, data);
+	} catch (err) {
+		throw err;
+	}
+}
+
 (async () => {
 
     const questions = [
@@ -124,14 +141,25 @@ const updateXsSecurityJson = async (config) => {
     const config = {
         template: 'express-ts-btp-api',
         projectName: answers.projectName,
-        destination: './test-dest'
+        destination: './test'
     };
 
+	// Entire Structure
     await copyProjectFiles(config);
 
+	// Main Folder
     await updatePackageJson(config);
-
     await updateXsSecurityJson(config);
+	//await updateMtaYaml(config);
+
+	// Router Folder
+	config.destination = config.destination + '/router';
+	await updatePackageJson(config);
+
+	// Srv Folder
+	//config.destination = config.destination + '/srv';
+
+	
 
     console.log('... and done! 😉 Project ' + answers.projectName + ' has been created successfully!');
 
